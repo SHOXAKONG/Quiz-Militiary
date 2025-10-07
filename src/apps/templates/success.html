@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Спасибо!{% endblock %}
+{% block content %}
+<div class="text-center mt-5">
+  <h2 class="text-success fw-bold">Спасибо!</h2>
+  <p class="lead">Ваша заявка успешно отправлена. Мы скоро с вами свяжемся.</p>
+  <a href="{% url 'home' %}" class="btn btn-primary mt-3">Вернуться на главную</a>
+</div>
+{% endblock %}
