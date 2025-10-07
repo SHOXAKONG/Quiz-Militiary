@@ -4,7 +4,7 @@ services:
   web:
     build: .
     container_name: django_app_quiz_1
-    command: python manage.py runserver 0.0.0.0:${DJANGO_PORT}
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
       - static_volume:/app/staticfiles
