@@ -4,14 +4,14 @@ services:
   web:
     build: .
     container_name: django_app_quiz_1
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:${DJANGO_PORT}
     volumes:
       - .:/app
       - static_volume:/app/staticfiles
     ports:
       - "8004:8000"
-    environment:
-      - DEBUG=1
+    env_file:
+      - .env
     restart: always
 
 volumes:
