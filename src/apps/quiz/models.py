@@ -1,22 +1,27 @@
 from django.db import models
-import uuid
+
+
+class ConsultationMethod(models.TextChoices):
+    OFFICE = "office", "В офисе"
+    PHONE = "phone", "По телефону"
+    WHATSAPP = "whatsapp", "WhatsApp"
+    HOME = "home", "Выезд на дом"
+
+
+class CaseType(models.TextChoices):
+    SERVICE = "service", "Прохождение службы"
+    BENEFITS = "benefits", "Военные льготы"
+    CONTRACT = "contract", "Контрактная служба"
+    DISMISSAL = "dismissal", "Увольнение из армии"
+    OTHER = "other", "Другое"
+
 
 class QuizResponse(models.Model):
-    CASE_TYPES = [
-        ('family', 'Семейное дело'),
-        ('military', 'Военное дело'),
-    ]
-
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    case_type = models.CharField(max_length=50, choices=CASE_TYPES)
-    full_name = models.CharField(max_length=150)
+    case_type = models.CharField(max_length=50, choices=CaseType.choices)
+    details = models.TextField()
+    full_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
-    email = models.EmailField(blank=True, null=True)
-    question_1 = models.TextField(blank=True, null=True)  # Describe situation
-    question_2 = models.TextField(blank=True, null=True)  # Have you contacted a lawyer before?
-    question_3 = models.CharField(max_length=100, blank=True, null=True)  # When did the issue arise?
-    question_4 = models.TextField(blank=True, null=True)  # Additional details
-
+    consultation_method = models.CharField(max_length=20, choices=ConsultationMethod.choices)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
