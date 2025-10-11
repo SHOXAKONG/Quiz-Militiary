@@ -2,18 +2,18 @@
 {% block title %}Квиз по военному праву{% endblock %}
 
 {% block content %}
-<div class="text-center mt-5 vh-100">
-  <h1 class="fw-bold mb-3">Квиз по военному праву</h1>
+<div class="text-center mt-5 vh-100 d-flex flex-column justify-content-center">
+  <h1 class="fw-bold mb-3 text-dark">Квиз по военному праву</h1>
   <p class="lead mb-5 text-muted">
     Ответьте на несколько вопросов и получите консультацию по вашему делу.
   </p>
 
   <div class="d-flex justify-content-center gap-3 flex-wrap">
-    <a href="{% url 'military-quiz' %}" class="btn btn-outline-primary btn-lg px-5 py-3">Военные дела</a>
+    <a href="{% url 'military-quiz' %}" class="btn btn-outline-primary btn-lg px-5 py-3 shadow-sm">Военные дела</a>
   </div>
 
   <div class="mt-5 text-muted">
-    <p>Наши юристы помогут вам разобраться в сложных ситуациях, связанных с бракоразводными процессами, военной службой и другими правовыми вопросами.</p>
+    <p>Наши юристы помогут вам разобраться в сложных ситуациях, связанных с военной службой, контрактами и льготами.</p>
   </div>
 </div>
 {% endblock %}
